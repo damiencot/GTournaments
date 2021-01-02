@@ -1,6 +1,6 @@
 # GTournaments
 
-(my personal training in c#)
+### (my personal training in c#)
 
 Tournament Management system
 
