@@ -14,31 +14,16 @@ namespace TrackerUI
 {
     public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
-
+        // DataSource for the selectTeamDropDown
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         List<TeamModel> selectedTeams = new List<TeamModel>();
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
+
         public CreateTournamentForm()
         {
             InitializeComponent();
-            InitializeLists();
-        }
 
-        private void teamOneScoreLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InitializeLists()
-        {
-            selectTeamDropDown.DataSource = availableTeams;
-            selectTeamDropDown.DisplayMember = "TeamName";
-
-            tournamentTeamsListBox.DataSource = selectedTeams;
-            tournamentTeamsListBox.DisplayMember = "TeamName";
-
-            prizesListBox.DataSource = selectedPrizes;
-            prizesListBox.DisplayMember = "PlaceName";
+            WireUpLists();
         }
 
         private void WireUpLists()
@@ -56,15 +41,9 @@ namespace TrackerUI
             prizesListBox.DisplayMember = "PlaceName";
         }
 
-        private void selectTeamDropDaown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void addTeamButton_Click(object sender, EventArgs e)
         {
             TeamModel t = (TeamModel)selectTeamDropDown.SelectedItem;
-
             if (t != null)
             {
                 availableTeams.Remove(t);
@@ -76,15 +55,17 @@ namespace TrackerUI
 
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
+            // Call the CreatePrizeForm
             CreatePrizeForm frm = new CreatePrizeForm(this);
             frm.Show();
         }
 
+        // Get back from the form a PrizeModel
         public void PrizeComplete(PrizeModel model)
         {
+            // Take the PrizeModel and put it into our list of selected prizes listbox
             selectedPrizes.Add(model);
             WireUpLists();
-            
         }
 
         public void TeamComplete(TeamModel model)
@@ -105,8 +86,8 @@ namespace TrackerUI
 
             if (t != null)
             {
-                selectedTeams.Remove(t);
                 availableTeams.Add(t);
+                selectedTeams.Remove(t);
 
                 WireUpLists();
             }
@@ -121,21 +102,23 @@ namespace TrackerUI
                 selectedPrizes.Remove(p);
 
                 WireUpLists();
-
             }
         }
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
+            // Validate data
             decimal fee = 0;
-
             bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out fee);
 
-            if(!feeAcceptable)
+            if (!feeAcceptable)
             {
-                MessageBox.Show("You need a valid Entry Fee.", "Invalid Fee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You need to enter a valid Entry Fee.", "Invalid Fee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+
+            // Create our tournament model
             TournamentModel tm = new TournamentModel();
 
             tm.TournamentName = tournamentNameValue.Text;
@@ -144,7 +127,12 @@ namespace TrackerUI
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
 
+            // TODO - Wire up our machups
+            TournamentLogic.CreateRounds(tm);
 
+            // Create Tournament entry
+            // Create all of the prizes entries
+            // Create all of the team entries
             GlobalConfig.Connection.CreateTournament(tm);
 
         }

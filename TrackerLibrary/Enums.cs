@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrackerLibrary
 {
-    public enum DataBaseType
+    public enum DatabaseType
     {
         Sql,
         TextFile

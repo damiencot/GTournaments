@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TeamNameValue = new System.Windows.Forms.TextBox();
+            this.teamNameValue = new System.Windows.Forms.TextBox();
             this.teamNameLabel = new System.Windows.Forms.Label();
             this.headerLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
@@ -50,12 +50,12 @@
             this.addNewMemberGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TeamNameValue
+            // teamNameValue
             // 
-            this.TeamNameValue.Location = new System.Drawing.Point(27, 125);
-            this.TeamNameValue.Name = "TeamNameValue";
-            this.TeamNameValue.Size = new System.Drawing.Size(336, 38);
-            this.TeamNameValue.TabIndex = 13;
+            this.teamNameValue.Location = new System.Drawing.Point(27, 125);
+            this.teamNameValue.Name = "teamNameValue";
+            this.teamNameValue.Size = new System.Drawing.Size(336, 38);
+            this.teamNameValue.TabIndex = 13;
             // 
             // teamNameLabel
             // 
@@ -93,7 +93,6 @@
             this.addMemberButton.TabIndex = 19;
             this.addMemberButton.Text = "Add Member";
             this.addMemberButton.UseVisualStyleBackColor = false;
-            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // selectTeamMemberDropDown
             // 
@@ -154,7 +153,6 @@
             this.cellphoneValue.Name = "cellphoneValue";
             this.cellphoneValue.Size = new System.Drawing.Size(136, 38);
             this.cellphoneValue.TabIndex = 16;
-            this.cellphoneValue.TextChanged += new System.EventHandler(this.cellphoneValue_TextChanged);
             // 
             // cellphoneLabel
             // 
@@ -209,7 +207,6 @@
             this.firstNameValue.Name = "firstNameValue";
             this.firstNameValue.Size = new System.Drawing.Size(136, 38);
             this.firstNameValue.TabIndex = 10;
-            this.firstNameValue.TextChanged += new System.EventHandler(this.firstNameValue_TextChanged);
             // 
             // firstNameLabel
             // 
@@ -221,7 +218,6 @@
             this.firstNameLabel.Size = new System.Drawing.Size(152, 32);
             this.firstNameLabel.TabIndex = 9;
             this.firstNameLabel.Text = "First Name";
-            this.firstNameLabel.Click += new System.EventHandler(this.firstNameLabel_Click);
             // 
             // teamMembersListBox
             // 
@@ -246,7 +242,6 @@
             this.removeSelectedMemberButton.TabIndex = 22;
             this.removeSelectedMemberButton.Text = "Remove Selected";
             this.removeSelectedMemberButton.UseVisualStyleBackColor = false;
-            this.removeSelectedMemberButton.Click += new System.EventHandler(this.removeSelectedMemberButton_Click);
             // 
             // createTeamButton
             // 
@@ -277,14 +272,13 @@
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.selectTeamMemberDropDown);
             this.Controls.Add(this.selectTeamMemberLabel);
-            this.Controls.Add(this.TeamNameValue);
+            this.Controls.Add(this.teamNameValue);
             this.Controls.Add(this.teamNameLabel);
             this.Controls.Add(this.headerLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "CreateTeamForm";
             this.Text = "Create Team";
-            this.Load += new System.EventHandler(this.CreateTeamForm_Load);
             this.addNewMemberGroupBox.ResumeLayout(false);
             this.addNewMemberGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -294,7 +288,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TeamNameValue;
+        private System.Windows.Forms.TextBox teamNameValue;
         private System.Windows.Forms.Label teamNameLabel;
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.Button addMemberButton;

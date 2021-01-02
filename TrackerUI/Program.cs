@@ -10,7 +10,7 @@ namespace TrackerUI
     static class Program
     {
         /// <summary>
-        /// Point d'entrée principal de l'application.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
@@ -19,9 +19,10 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialize the database connections
-            TrackerLibrary.GlobalConfig.InitializeConnections(DataBaseType.Sql);
-            Application.Run(new CreateTournamentForm());
+            TrackerLibrary.GlobalConfig.InitilaizeConnections(TrackerLibrary.DatabaseType.TextFile);
 
+            Application.Run(new CreateTournamentForm());
+            //Application.Run(new CreateTeamForm());
             //Application.Run(new TournamentDashboardForm());
         }
     }

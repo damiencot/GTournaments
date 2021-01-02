@@ -15,41 +15,31 @@ namespace TrackerUI
 {
     public partial class CreatePrizeForm : Form
     {
-
         IPrizeRequester callingForm;
-
         public CreatePrizeForm(IPrizeRequester caller)
         {
             InitializeComponent();
+
             callingForm = caller;
-        }
-
-        private void headerLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreatePrizeForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
-            if(validateForm())
+            if (ValidateForm())
             {
                 PrizeModel model = new PrizeModel(
-                    placeNameValue.Text, 
-                    placeNumberValue.Text, 
+                    placeNameValue.Text,
+                    placeNumberValue.Text,
                     prizeAmountValue.Text,
                     prizePercentageValue.Text);
 
-                GlobalConfig.Connection.CreatePrize(model);
+                GlobalConfig.Connection.CreatePrize(model); // Model goes into the method, got id filled and returned the same model instance
 
+                // We can pass out the model to a class, who called us, who implements IPrizeRequester, such as CreateTournamentForm class
                 callingForm.PrizeComplete(model);
 
                 this.Close();
-
+                //Form is closed therefore reset these values is not needed
                 //placeNameValue.Text = "";
                 //placeNumberValue.Text = "";
                 //prizeAmountValue.Text = "0";
@@ -57,16 +47,15 @@ namespace TrackerUI
             }
             else
             {
-                MessageBox.Show("this form has invalid information. Please check it and try again");
+                MessageBox.Show("This form has invalid information. Please check it and try again.");
             }
         }
 
-        private bool validateForm()
+        private bool ValidateForm()
         {
             bool output = true;
-            bool placeNumberValidNumber = int.TryParse(placeNumberValue.Text, out int placeNumber);
 
-            if (placeNumberValidNumber == false)
+            if (int.TryParse(placeNumberValue.Text, out int placeNumber) == false)
             {
                 output = false;
             }
@@ -82,7 +71,7 @@ namespace TrackerUI
             }
 
             bool prizeAmountValid = decimal.TryParse(prizeAmountValue.Text, out decimal prizeAmount);
-            bool prizePercentageValid = int.TryParse(prizePercentageValue.Text, out int prizePercentage);
+            bool prizePercentageValid = double.TryParse(prizePercentageValue.Text, out double prizePercentage);
 
             if (prizeAmountValid == false || prizePercentageValid == false)
             {

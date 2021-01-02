@@ -6,29 +6,23 @@ namespace TrackerLibrary.Models
 {
     public class MatchupEntryModel
     {
-        /// <summary>
-        /// Represents one team in the matchup
-        /// </summary>
+        public int Id { get; set; }
         public TeamModel TeamCompeting { get; set; }
-
-        /// <summary>
-        /// represents the score for this particular team
-        /// </summary>
+        public int TeamCompetingId { get; set; }
         public double Score { get; set; }
-
-        /// <summary>
-        /// represents the matchup that this team came 
-        /// from as the the winer
-        /// </summary>
         public MatchupModel ParentMatchup { get; set; }
+        public int ParentMatchupId { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="initialScore"></param>
-        public MatchupEntryModel(double initialScore)
+        public override string ToString()
         {
-
+            if (TeamCompeting != null)
+            {
+                return "Team:" + TeamCompeting.TeamName;
+            }
+            else
+            {
+                return "Team steht noch nicht fest";
+            }
         }
 
     }

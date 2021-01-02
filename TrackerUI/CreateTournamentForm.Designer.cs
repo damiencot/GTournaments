@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.headerLabel = new System.Windows.Forms.Label();
+            this.createTournament = new System.Windows.Forms.Label();
             this.tournamentNameValue = new System.Windows.Forms.TextBox();
             this.tournamentNameLabel = new System.Windows.Forms.Label();
             this.entryFeeValue = new System.Windows.Forms.TextBox();
@@ -47,16 +47,16 @@
             this.createTournamentButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // headerLabel
+            // createTournament
             // 
-            this.headerLabel.AutoSize = true;
-            this.headerLabel.BackColor = System.Drawing.Color.White;
-            this.headerLabel.ForeColor = System.Drawing.Color.DarkCyan;
-            this.headerLabel.Location = new System.Drawing.Point(12, 34);
-            this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(268, 32);
-            this.headerLabel.TabIndex = 1;
-            this.headerLabel.Text = "Create Tournament:";
+            this.createTournament.AutoSize = true;
+            this.createTournament.BackColor = System.Drawing.Color.White;
+            this.createTournament.ForeColor = System.Drawing.Color.DarkCyan;
+            this.createTournament.Location = new System.Drawing.Point(12, 34);
+            this.createTournament.Name = "createTournament";
+            this.createTournament.Size = new System.Drawing.Size(268, 32);
+            this.createTournament.TabIndex = 1;
+            this.createTournament.Text = "Create Tournament:";
             // 
             // tournamentNameValue
             // 
@@ -75,7 +75,6 @@
             this.tournamentNameLabel.Size = new System.Drawing.Size(250, 32);
             this.tournamentNameLabel.TabIndex = 9;
             this.tournamentNameLabel.Text = "Tournament Name";
-            this.tournamentNameLabel.Click += new System.EventHandler(this.teamOneScoreLabel_Click);
             // 
             // entryFeeValue
             // 
@@ -103,7 +102,6 @@
             this.selectTeamDropDown.Name = "selectTeamDropDown";
             this.selectTeamDropDown.Size = new System.Drawing.Size(336, 39);
             this.selectTeamDropDown.TabIndex = 14;
-            this.selectTeamDropDown.SelectedIndexChanged += new System.EventHandler(this.selectTeamDropDaown_SelectedIndexChanged);
             // 
             // selectTeamLabel
             // 
@@ -192,7 +190,7 @@
             this.removeSelectedPlayerButton.Size = new System.Drawing.Size(137, 88);
             this.removeSelectedPlayerButton.TabIndex = 20;
             this.removeSelectedPlayerButton.Text = "Remove Selected";
-            this.removeSelectedPlayerButton.UseVisualStyleBackColor = false;
+            this.removeSelectedPlayerButton.UseVisualStyleBackColor = true;
             this.removeSelectedPlayerButton.Click += new System.EventHandler(this.removeSelectedPlayerButton_Click);
             // 
             // removeSelectedPrizeButton
@@ -208,7 +206,7 @@
             this.removeSelectedPrizeButton.Size = new System.Drawing.Size(142, 88);
             this.removeSelectedPrizeButton.TabIndex = 23;
             this.removeSelectedPrizeButton.Text = "Remove Selected";
-            this.removeSelectedPrizeButton.UseVisualStyleBackColor = false;
+            this.removeSelectedPrizeButton.UseVisualStyleBackColor = true;
             this.removeSelectedPrizeButton.Click += new System.EventHandler(this.removeSelectedPrizeButton_Click);
             // 
             // prizesLabel
@@ -216,11 +214,11 @@
             this.prizesLabel.AutoSize = true;
             this.prizesLabel.BackColor = System.Drawing.Color.White;
             this.prizesLabel.ForeColor = System.Drawing.Color.DarkCyan;
-            this.prizesLabel.Location = new System.Drawing.Point(401, 325);
+            this.prizesLabel.Location = new System.Drawing.Point(406, 324);
             this.prizesLabel.Name = "prizesLabel";
-            this.prizesLabel.Size = new System.Drawing.Size(204, 32);
+            this.prizesLabel.Size = new System.Drawing.Size(94, 32);
             this.prizesLabel.TabIndex = 22;
-            this.prizesLabel.Text = "Team / Players";
+            this.prizesLabel.Text = "Prizes";
             // 
             // prizesListBox
             // 
@@ -244,7 +242,7 @@
             this.createTournamentButton.Size = new System.Drawing.Size(279, 77);
             this.createTournamentButton.TabIndex = 24;
             this.createTournamentButton.Text = "Create Tournament";
-            this.createTournamentButton.UseVisualStyleBackColor = false;
+            this.createTournamentButton.UseVisualStyleBackColor = true;
             this.createTournamentButton.Click += new System.EventHandler(this.createTournamentButton_Click);
             // 
             // CreateTournamentForm
@@ -269,7 +267,7 @@
             this.Controls.Add(this.entryFeeLabel);
             this.Controls.Add(this.tournamentNameValue);
             this.Controls.Add(this.tournamentNameLabel);
-            this.Controls.Add(this.headerLabel);
+            this.Controls.Add(this.createTournament);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "CreateTournamentForm";
@@ -281,7 +279,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label headerLabel;
+        private System.Windows.Forms.Label createTournament;
         private System.Windows.Forms.TextBox tournamentNameValue;
         private System.Windows.Forms.Label tournamentNameLabel;
         private System.Windows.Forms.TextBox entryFeeValue;
