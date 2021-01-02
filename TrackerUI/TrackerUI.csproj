@@ -66,18 +66,6 @@
     </Compile>
     <Compile Include="IPrizeRequester.cs" />
     <Compile Include="ITeamRequester.cs" />
-    <Compile Include="TournamentDashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TournamentDashboardForm.Designer.cs">
-      <DependentUpon>TournamentDashboardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TournamentViewerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TournamentViewerForm.Designer.cs">
-      <DependentUpon>TournamentViewerForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreatePrizeForm.resx">
@@ -98,12 +86,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TournamentDashboardForm.resx">
-      <DependentUpon>TournamentDashboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TournamentViewerForm.resx">
-      <DependentUpon>TournamentViewerForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

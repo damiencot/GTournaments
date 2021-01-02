@@ -101,6 +101,7 @@ namespace TrackerLibrary.DataAccess
         public void CreateTournament(TournamentModel model)
         {
             List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
+
             // Find the max ID
             int currentId = 1;
             if (tournaments.Count > 0)
